@@ -132,7 +132,7 @@ const Navbar = () => {
                             <div className="dropdown dropdown-end">
                                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                                     <div data-tooltip-id="my-tooltip" data-tooltip-content={`${user?.displayName && user.displayName}`} className="w-10 rounded-full">
-                                        <img src={user?.photoURL} />
+                                        <img  src={user?.photoURL} />
                                         <Tooltip id="my-tooltip" />
                                     </div>
                                 </label>
