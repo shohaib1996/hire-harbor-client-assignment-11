@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 import toast from "react-hot-toast";
 import { useContext } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import { updateProfile } from "firebase/auth";
 
 
 const Register = () => {
@@ -37,16 +38,30 @@ const Register = () => {
                         confirmButtonText: 'Cool'
                     })
     
-                    logOut()
-                        .then(() => {
-                            console.log('Log Out successfully')
-                            navigate("/login")
-                        })
-                        .catch(error => {
-                            console.error(error);
-                        })
+                    updateProfile(user, {
+                        displayName: name, photoURL: photo
+                    }).then(() => {
+                        toast.success('User Profile Updated');
+    
+                        logOut()
+                            .then(() => {
+                                console.log('Log Out successfully')
+                                navigate("/login")
+                            })
+                            .catch(error => {
+                                console.error(error);
+                            })
+    
+                    }).catch(error => {
+                        console.error(error);
+    
+                    })
                 })
-                .catch(error => console.error(error))
+                .catch(error => {
+                    console.error(error);
+                    toast.error("Please Login with valid Email and password")
+                })
+    
     
     
        

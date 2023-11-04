@@ -1,6 +1,6 @@
 import Navbar from "../../SharedComponents/Navbar/Navbar";
 import LoginImg from "../../../public/images/login-removebg-preview.png"
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import toast from "react-hot-toast";
 import { useContext } from "react";
@@ -9,11 +9,10 @@ import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 
 const Login = () => {
+    const location = useLocation()
     const navigate = useNavigate()
-    const {signInUser, signInWithGoogle} = useContext(AuthContext)
+    const { signInUser, signInWithGoogle } = useContext(AuthContext)
     const handleLogin = (e) => {
-       
-        
         e.preventDefault()
         const form = e.target;
         const email = form.email.value;
@@ -21,7 +20,7 @@ const Login = () => {
         console.log(email, password);
         if (password.length < 6) {
             return toast.error("Password length should be 6 or more")
-        } 
+        }
         signInUser(email, password)
             .then(result => {
                 const loggedInUser = result.user;
@@ -35,22 +34,22 @@ const Login = () => {
                 })
                 navigate(location?.state ? location.state : "/")
 
-    
-            })
-            .catch(error => console.error(error))  
-}
-const handleSocial = (media) => {
-    media()
-        .then(result => {
-            console.log(result.user)
-            toast.success("Login Successfully")
-            navigate(location?.state ? location.state : "/")
 
-        })
-        .catch(error => {
-            console.error(error);
-        })
-}
+            })
+            .catch(error => console.error(error))
+    }
+    const handleSocial = (media) => {
+        media()
+            .then(result => {
+                console.log(result.user)
+                toast.success("Login Successfully")
+                navigate(location?.state ? location.state : "/")
+
+            })
+            .catch(error => {
+                console.error(error);
+            })
+    }
     return (
 
         <div>
