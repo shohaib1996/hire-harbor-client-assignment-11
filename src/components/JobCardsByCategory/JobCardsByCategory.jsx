@@ -28,7 +28,7 @@ const JobCardsByCategory = ({job}) => {
                 <h1 className='text-[#022f5d] text-2xl font-extrabold'>{Job_Title}</h1>
                 <p>PubLished: <span className=' p-1 rounded-md'>{Job_Posting_Date}</span></p>
                 <p>Deadline: <span>{Application_Deadline}</span></p>
-                <p><span className='text-[#022f5d] text-xl font-bold'>{Salary_Range}</span> <span >/Year</span></p>
+                <p><span className='text-[#022f5d] text-xl font-bold'>$({Salary_Range})</span> <span >/Year</span></p>
             </div>
             <div className='flex justify-between'>
                 <h1><span >Posted by:</span> <span className='text-xl font-semibold'>{Posted_by}</span></h1>
