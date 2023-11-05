@@ -1,12 +1,19 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Navbar from "../../SharedComponents/Navbar/Navbar";
 import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
 import Footer from "../../SharedComponents/Footer/Footer";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
+import axios from "axios";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import Swal from "sweetalert2";
 
 
 const AddAJob = () => {
+    const queryClient = useQueryClient()
+
+    const { user } = useContext(AuthContext)
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(new Date())
     const day = startDate.getDate().toString().padStart(2, '0');
@@ -19,11 +26,61 @@ const AddAJob = () => {
     const years = endDate.getFullYear();
     const formattedEndDate = `${days}-${months}-${years}`;
     console.log(formattedStartDate, formattedEndDate);
+    
+
+    const addAJob = async (job) => {
+        const res = await axios.post("http://localhost:5000/jobs", job)
+        return res.data
+    }
+
+
+    const mutation = useMutation({
+        mutationFn: addAJob,
+        onSuccess: (data) => {
+            console.log("added")
+            console.log(data);
+            if(data.insertedId){
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'Job Added Successfully',
+                    icon: 'success',
+                    confirmButtonText: 'Cool'
+                  })
+            }
+            queryClient.invalidateQueries({ queryKey: ['todos'] })
+        },
+    })
+
+
+    const handleAddJob = e => {
+        e.preventDefault()
+        const form = e.target;
+        // const {Posted_by, Job_Title, Job_Posting_Date, Application_Deadline, Salary_Range, Job_Applicants_Number, Job_Type, Job_Image} = job
+        const Posted_by = form.user.value;
+        const Job_Title = form.jobTitle.value;
+        const Job_Image = form.photo.value;
+        const Job_Type = form.job_type.value;
+        const Salary_Range = form.salary.value;
+        const Job_Posting_Date = formattedStartDate;
+        const Application_Deadline = formattedEndDate;
+        const Job_Applicants_Number = parseFloat(form.applicants.value);
+        const Job_Description = form.description.value;
+        const userEmail = user?.email;
+
+        const job = {
+            Posted_by, Job_Title, Job_Posting_Date, Application_Deadline, Salary_Range, Job_Applicants_Number, Job_Type, Job_Image, Job_Description, userEmail
+        }
+        console.log(job);
+        mutation.mutate(job)
+
+    }
+
+
     return (
         <div>
             <Navbar></Navbar>
             <div>
-                <form className='max-w-screen-md mx-auto p-5 mt-12 pb-12 mb-12 border-2 rounded-lg'>
+                <form onSubmit={handleAddJob} className='max-w-screen-md mx-auto p-5 mt-12 pb-12 mb-12 border-2 rounded-lg'>
                     <div className='mb-6 text-5xl  font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-green-700 text-clip'>Add Your Jobs Here !!!</div>
                     <div className="relative z-0 w-full mb-6 group">
                         <input
@@ -79,6 +136,7 @@ const AddAJob = () => {
                             <input
                                 type="text"
                                 name="user"
+                                defaultValue={user?.displayName}
                                 id="floating_repeat_password"
                                 className="block py-2.5 px-0 w-full text-sm  bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-yellow-400 peer"
                                 placeholder=" "
@@ -175,8 +233,8 @@ const AddAJob = () => {
                         </div>
                         <div className="relative z-0 w-full mb-6 group">
                             <select
-                                name="vehicle_type"
-                                id="vehicle_type"
+                                name="job_type"
+
                                 className="block py-2.5 px-0 w-full text-sm  bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-yellow-400 peer"
                                 required=""
                             >
@@ -188,7 +246,7 @@ const AddAJob = () => {
 
                             </select>
                             <label
-                                htmlFor="vehicle_type"
+                                htmlFor="job_type"
                                 className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-green-500 peer-focus:dark:text-green-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                             >
 

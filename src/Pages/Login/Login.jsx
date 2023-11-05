@@ -10,6 +10,7 @@ import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const Login = () => {
     const location = useLocation()
+    console.log(location)
     const navigate = useNavigate()
     const { signInUser, signInWithGoogle } = useContext(AuthContext)
     const handleLogin = (e) => {

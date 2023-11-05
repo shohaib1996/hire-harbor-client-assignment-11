@@ -10,6 +10,8 @@ import Blogs from "../Pages/Blogs/Blogs";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import UserProfile from "../Pages/UserProfile/UserProfile";
+import JobDetails from "../components/JobDetails/JobDetails";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 
 const router = createBrowserRouter([
@@ -55,6 +57,10 @@ const router = createBrowserRouter([
             {
                 path: "/user-profile",
                 element: <UserProfile></UserProfile>
+            },
+            {
+                path: "/jobs/:id",
+                element: <PrivateRoute><JobDetails></JobDetails></PrivateRoute>
             }
         ]
     }
