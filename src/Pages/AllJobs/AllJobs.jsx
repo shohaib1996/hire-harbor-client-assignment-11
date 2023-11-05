@@ -1,17 +1,30 @@
 import { useLoaderData } from "react-router-dom";
 import Navbar from "../../SharedComponents/Navbar/Navbar";
 import AllJobsTableRow from "./AllJobsTableRow/AllJobsTableRow";
+import Footer from "../../SharedComponents/Footer/Footer";
+import { useRef } from "react";
 
 
 const AllJobs = () => {
     const jobs = useLoaderData()
-    console.log(jobs);
+    const inputElement = useRef()
+    // console.log(jobs);
+    const handleSearch = (e) => {
+        e.preventDefault()
+        console.log(inputElement.current.value)
+
+    }
     return (
         <div>
             <Navbar></Navbar>
+            <div className="flex flex-row justify-center items-center space-x-5 mt-12">
+                <input type="text" ref={inputElement} placeholder="Type here" className="input input-bordered w-full max-w-xs" />
+                <button onClick={handleSearch} className="btn">Search</button>
+            </div>
             <div>
-                <div className="overflow-x-auto max-w-6xl mx-auto mt-12">
-                <table className="table">
+
+                <div className="overflow-x-auto max-w-6xl mx-auto mt-12 mb-12">
+                    <table className="table">
                         {/* head */}
                         <thead>
                             <tr className="text-center">
@@ -33,6 +46,7 @@ const AllJobs = () => {
                     </table>
                 </div>
             </div>
+            <Footer></Footer>
         </div>
     );
 };
