@@ -2,18 +2,26 @@ import { useLoaderData } from "react-router-dom";
 import Navbar from "../../SharedComponents/Navbar/Navbar";
 import AllJobsTableRow from "./AllJobsTableRow/AllJobsTableRow";
 import Footer from "../../SharedComponents/Footer/Footer";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 
 const AllJobs = () => {
     const jobs = useLoaderData()
     const inputElement = useRef()
+    const [searchJobs, setSearchJobs] = useState([])
     // console.log(jobs);
     const handleSearch = (e) => {
         e.preventDefault()
         console.log(inputElement.current.value)
-
+        const search = inputElement.current.value.toLowerCase()
+        const filterJobs = jobs.filter(job => job.Job_Title.toLowerCase() === search)
+        // console.log(filterJobs);
+        
+        setSearchJobs(filterJobs)
+        inputElement.current.value = ""
     }
+    console.log(searchJobs)
+    console.log(jobs);
     return (
         <div>
             <Navbar></Navbar>
@@ -39,7 +47,7 @@ const AllJobs = () => {
                         </thead>
                         <tbody>
                             {
-                                jobs.map(job => <AllJobsTableRow key={job._id} job={job}></AllJobsTableRow>)
+                                searchJobs.length > 0 ? searchJobs?.map(job => <AllJobsTableRow key={job._id} job={job}></AllJobsTableRow>) : jobs?.map(job => <AllJobsTableRow key={job._id} job={job}></AllJobsTableRow>)
                             }
                         </tbody>
 
