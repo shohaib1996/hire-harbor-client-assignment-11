@@ -18,7 +18,7 @@ const Home = () => {
     console.log(jobsToDisplay);
 
     useEffect(() => {
-        fetch("/category.json")
+        fetch("http://localhost:5000/category")
             .then(res => res.json())
             .then(data => setCategories(data))
     }, [])
@@ -39,7 +39,7 @@ const Home = () => {
                                 <div className="grid grid-cols-5 gap-5">
                                     {categories?.map((category, index) => (
                                         <Tab
-                                            key={category.id}
+                                            key={category._id}
                                             style={{
                                                 backgroundColor: index === tabIndex ? "green" : "",
                                                 color: index === tabIndex ? "white" : "green",
