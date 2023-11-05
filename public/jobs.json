@@ -3,81 +3,97 @@
       "id": 1,
       "Posted_by": "John Doe",
       "Job_Title": "Software Engineer",
-      "Job_Posting_Date": "2023-11-05",
-      "Application_Deadline": "2023-12-05",
+      "Job_Posting_Date": "05-11-23",
+      "Application_Deadline": "05-12-23",
       "Salary_Range": "80,000 - 100,000",
       "Job_Applicants_Number": 0,
-      "Job_Type": "On Site Job"
+      "Job_Type": "On Site Job",
+      "Job_Description": "We are looking for a skilled software engineer to join our team. You will work on developing cutting-edge software solutions.",
+      "Job_Image": "https://thumbs.dreamstime.com/b/software-engineer-sit-chair-working-laptop-use-programming-language-code-flat-cartoon-style-vector-design-189895214.jpg"
     },
     {
       "id": 2,
       "Posted_by": "Jane Smith",
       "Job_Title": "Marketing Manager",
-      "Job_Posting_Date": "2023-11-10",
-      "Application_Deadline": "2023-12-10",
+      "Job_Posting_Date": "10-11-23",
+      "Application_Deadline": "10-12-23",
       "Salary_Range": "60,000 - 80,000",
       "Job_Applicants_Number": 0,
-      "Job_Type": "On Site Job"
+      "Job_Type": "On Site Job",
+      "Job_Description": "Join our marketing team and lead marketing campaigns to promote our products and services.",
+      "Job_Image": "https://lumen5.com/learn/wp-content/uploads/2019/06/The-Ultimate-Marketing-Manager-Guide.jpg"
     },
     {
       "id": 3,
       "Posted_by": "Alice Johnson",
       "Job_Title": "Data Scientist",
-      "Job_Posting_Date": "2023-11-15",
-      "Application_Deadline": "2023-12-15",
+      "Job_Posting_Date": "15-11-23",
+      "Application_Deadline": "15-12-23",
       "Salary_Range": "90,000 - 120,000",
       "Job_Applicants_Number": 0,
-      "Job_Type": "Remote Job"
+      "Job_Type": "Remote Job",
+      "Job_Description": "As a data scientist, you will work on analyzing and interpreting data to solve complex problems.",
+      "Job_Image": "https://d14b9ctw0m6fid.cloudfront.net/ugblog/wp-content/uploads/2019/04/Untitled-2-02.png"
     },
     {
       "id": 4,
       "Posted_by": "Bob Wilson",
       "Job_Title": "Graphic Designer",
-      "Job_Posting_Date": "2023-11-20",
-      "Application_Deadline": "2023-12-20",
+      "Job_Posting_Date": "20-11-23",
+      "Application_Deadline": "20-12-23",
       "Salary_Range": "50,000 - 70,000",
       "Job_Applicants_Number": 0,
-      "Job_Type": "Remote Job"
+      "Job_Type": "Remote Job",
+      "Job_Description": "Join our design team and create visually appealing graphics and designs for our projects.",
+      "Job_Image": "https://static.vecteezy.com/system/resources/previews/003/514/497/non_2x/design-studio-concept-isolated-development-of-graphics-pictures-brand-logo-people-scene-in-flat-cartoon-design-illustration-for-blogging-website-mobile-app-promotional-materials-vector.jpg"
     },
     {
       "id": 5,
       "Posted_by": "Ella Brown",
       "Job_Title": "Project Manager",
-      "Job_Posting_Date": "2023-11-25",
-      "Application_Deadline": "2023-12-25",
+      "Job_Posting_Date": "25-11-23",
+      "Application_Deadline": "25-12-23",
       "Salary_Range": "70,000 - 90,000",
       "Job_Applicants_Number": 0,
-      "Job_Type": "Hybrid"
+      "Job_Type": "Hybrid",
+      "Job_Description": "As a project manager, you will oversee and manage various projects to ensure their successful completion.",
+      "Job_Image": "https://img.freepik.com/free-vector/hand-drawn-illustrated-people-planning-business_23-2149153455.jpg?size=626&ext=jpg&ga=GA1.1.1826414947.1698883200&semt=ais"
     },
     {
       "id": 6,
       "Posted_by": "David White",
       "Job_Title": "Customer Support Representative",
-      "Job_Posting_Date": "2023-12-01",
-      "Application_Deadline": "2023-12-31",
+      "Job_Posting_Date": "01-12-23",
+      "Application_Deadline": "31-12-23",
       "Salary_Range": "40,000 - 50,000",
       "Job_Applicants_Number": 0,
-      "Job_Type": "Hybrid"
+      "Job_Type": "Hybrid",
+      "Job_Description": "Join our customer support team and provide assistance and support to our customers.",
+      "Job_Image": "https://static.vecteezy.com/system/resources/previews/020/537/753/original/customer-service-representative-at-computer-in-headset-isolated-on-white-cartoon-phone-operator-support-center-customer-support-flat-illustration-isolated-on-white-vector.jpg"
     },
     {
       "id": 7,
       "Posted_by": "Grace Adams",
       "Job_Title": "Content Writer",
-      "Job_Posting_Date": "2023-12-05",
-      "Application_Deadline": "2024-01-05",
+      "Job_Posting_Date": "05-12-23",
+      "Application_Deadline": "05-01-24",
       "Salary_Range": "35,000 - 45,000",
       "Job_Applicants_Number": 0,
-      "Job_Type": "Part Time"
+      "Job_Type": "Part Time",
+      "Job_Description": "We are looking for a creative content writer to create engaging and informative content for our projects.",
+      "Job_Image": "https://img.freepik.com/free-vector/creative-content-writing-copywriting-blogging-internet-marketing-article-text-editing-publishing-online-documents-writer-editor-character-concept-illustration_335657-1714.jpg"
     },
     {
       "id": 8,
       "Posted_by": "Michael Harris",
       "Job_Title": "Sales Representative",
-      "Job_Posting_Date": "2023-12-10",
-      "Application_Deadline": "2024-01-10",
+      "Job_Posting_Date": "10-12-23",
+      "Application_Deadline": "10-01-24",
       "Salary_Range": "45,000 - 55,000",
       "Job_Applicants_Number": 0,
-      "Job_Type": "Part Time"
+      "Job_Type": "Part Time",
+      "Job_Description": "Join our sales team and promote our products to potential customers. Achieve sales targets and goals.",
+      "Job_Image": "https://img.freepik.com/free-vector/salesman-concept_23-2147882855.jpg"
     }
   ]
   

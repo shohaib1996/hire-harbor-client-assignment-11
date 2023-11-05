@@ -2,9 +2,10 @@ import { useEffect, useState } from "react";
 import Footer from "../../SharedComponents/Footer/Footer";
 import Navbar from "../../SharedComponents/Navbar/Navbar";
 import Banner from "../../components/Banner/Banner";
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import { Tab, Tabs, TabList} from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import { useLoaderData } from "react-router-dom";
+import JobCardsByCategory from "../../components/JobCardsByCategory/JobCardsByCategory";
 
 
 const Home = () => {
@@ -35,7 +36,7 @@ const Home = () => {
                     <Tabs>
                         <div className="">
                             <TabList>
-                                <div className="grid grid-cols-5 gap-5 ">
+                                <div className="grid grid-cols-5 gap-5">
                                     {categories?.map((category, index) => (
                                         <Tab
                                             key={category.id}
@@ -58,12 +59,14 @@ const Home = () => {
                             </TabList>
                         </div>
 
-                        <TabPanel>
-                            <h2>Any content 1</h2>
-                        </TabPanel>
-                        <TabPanel>
-                            <h2>Any content 2</h2>
-                        </TabPanel>
+                        <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-7 justify-items-center mt-10">
+                           
+                                {
+                                    jobsToDisplay?.map(job => <JobCardsByCategory key={job.id} job={job}></JobCardsByCategory>)
+                                }
+                            
+                        </div>
+                        
                     </Tabs>
                 </div>
             </div>
