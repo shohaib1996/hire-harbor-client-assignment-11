@@ -4,18 +4,25 @@ import Navbar from "../../SharedComponents/Navbar/Navbar";
 import Banner from "../../components/Banner/Banner";
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
+import { useLoaderData } from "react-router-dom";
 
 
 const Home = () => {
     const [categories, setCategories] = useState([])
     const [tabIndex, setTabIndex] = useState(0);
+    const [type, setType] = useState("on site job")
+    const jobs = useLoaderData()
+    const filteredJobs = jobs.filter(job => job.Job_Type.toLowerCase() === type.toLowerCase());
+    const jobsToDisplay = filteredJobs.length > 0 ? filteredJobs : jobs;
+    console.log(jobsToDisplay);
 
     useEffect(() => {
         fetch("/category.json")
             .then(res => res.json())
             .then(data => setCategories(data))
     }, [])
-    console.log(tabIndex);
+
+
     return (
         <div>
             <Navbar></Navbar>
@@ -35,8 +42,11 @@ const Home = () => {
                                             style={{
                                                 backgroundColor: index === tabIndex ? "green" : "",
                                                 color: index === tabIndex ? "white" : "green",
-                                              }}
-                                            onClick={() => setTabIndex(index)}
+                                            }}
+                                            onClick={() => {
+                                                setTabIndex(index)
+                                                setType(category.title)
+                                            }}
                                         >
                                             <div className="flex flex-col items-center justify-center space-y-5 p-5">
                                                 <img src={category.img_tag} alt="" />
