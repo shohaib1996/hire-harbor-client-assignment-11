@@ -16,16 +16,16 @@ const AddAJob = () => {
     const { user } = useContext(AuthContext)
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(new Date())
-    const day = startDate.getDate().toString().padStart(2, '0');
-    const month = (startDate.getMonth() + 1).toString().padStart(2, '0');
-    const year = startDate.getFullYear();
-    const formattedStartDate = `${day}-${month}-${year}`;
+    // const day = startDate.getDate().toString().padStart(2, '0');
+    // const month = (startDate.getMonth() + 1).toString().padStart(2, '0');
+    // const year = startDate.getFullYear();
+    // const formattedStartDate = `${day}-${month}-${year}`;
 
-    const days = endDate.getDate().toString().padStart(2, '0');
-    const months = (endDate.getMonth() + 1).toString().padStart(2, '0');
-    const years = endDate.getFullYear();
-    const formattedEndDate = `${days}-${months}-${years}`;
-    console.log(formattedStartDate, formattedEndDate);
+    // const days = endDate.getDate().toString().padStart(2, '0');
+    // const months = (endDate.getMonth() + 1).toString().padStart(2, '0');
+    // const years = endDate.getFullYear();
+    // const formattedEndDate = `${days}-${months}-${years}`;
+    // console.log(startDate, endDate);
     
 
     const addAJob = async (job) => {
@@ -61,14 +61,14 @@ const AddAJob = () => {
         const Job_Image = form.photo.value;
         const Job_Type = form.job_type.value;
         const Salary_Range = form.salary.value;
-        const Job_Posting_Date = formattedStartDate;
-        const Application_Deadline = formattedEndDate;
+        // const Job_Posting_Date = formattedStartDate;
+        // const Application_Deadline = formattedEndDate;
         const Job_Applicants_Number = parseFloat(form.applicants.value);
         const Job_Description = form.description.value;
         const userEmail = user?.email;
 
         const job = {
-            Posted_by, Job_Title, Job_Posting_Date, Application_Deadline, Salary_Range, Job_Applicants_Number, Job_Type, Job_Image, Job_Description, userEmail
+            Posted_by, Job_Title, Job_Posting_Date: startDate, Application_Deadline: endDate, Salary_Range, Job_Applicants_Number, Job_Type, Job_Image, Job_Description, userEmail
         }
         console.log(job);
         mutation.mutate(job)
