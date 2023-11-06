@@ -11,7 +11,7 @@ import JobCardsByCategory from "../../components/JobCardsByCategory/JobCardsByCa
 const Home = () => {
     const [categories, setCategories] = useState([])
     const [tabIndex, setTabIndex] = useState(0);
-    const [type, setType] = useState("Remote Job")
+    const [type, setType] = useState("On Site Job")
     const jobs = useLoaderData()
     const filteredJobs = jobs.filter(job => job.Job_Type.toLowerCase() === type.toLowerCase());
     const jobsToDisplay = filteredJobs.length > 0 ? filteredJobs : jobs;

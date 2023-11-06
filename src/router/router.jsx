@@ -32,7 +32,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "/applied-jobs",
-                element: <AppliedJobs></AppliedJobs>
+                element: <PrivateRoute><AppliedJobs></AppliedJobs></PrivateRoute>
             },
             {
                 path: "/my-jobs",

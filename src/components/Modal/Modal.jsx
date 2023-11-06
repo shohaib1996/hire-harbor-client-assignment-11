@@ -2,9 +2,53 @@
 import { PropTypes } from 'prop-types';
 import { useContext } from 'react';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import axios from 'axios';
+import Swal from 'sweetalert2';
 
 const Modal = ({ showModal, setShowModal, job }) => {
-    const {user} = useContext(AuthContext)
+    const queryClient = useQueryClient()
+    const { user } = useContext(AuthContext)
+    const { Posted_by, Job_Title, Job_Posting_Date, Application_Deadline, Salary_Range, Job_Applicants_Number, Job_Type, Job_Description, Job_Image } = job
+
+    const addAppliedJob = async (appliedJob) => {
+        const res = await axios.post("http://localhost:5000/applied-job", appliedJob)
+        return res.data
+    }
+    const mutation = useMutation({
+        mutationFn: addAppliedJob,
+        onSuccess: (data) => {
+            console.log("added")
+            console.log(data);
+            if(data.insertedId){
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'Job Added Successfully',
+                    icon: 'success',
+                    confirmButtonText: 'Cool'
+                  })
+            }
+            queryClient.invalidateQueries({ queryKey: ['appliedJob'] })
+        },
+    })
+
+    const handleApplyJob = e => {
+        const newJob = {
+            Posted_by, Job_Title, Job_Posting_Date, Application_Deadline, Salary_Range, Job_Applicants_Number, Job_Type, Job_Description, Job_Image, email: user?.email, applicant_name: user?.displayName
+        }
+
+        e.preventDefault()
+        const form = e.target
+        const resume_link = form.resume.value;
+        console.log({ ...newJob, resume_link });
+        const applied = {...newJob, resume_link}
+        mutation.mutate(applied)
+
+
+
+
+        setShowModal(false)
+    }
     return (
         <>
             {showModal ? (
@@ -20,12 +64,12 @@ const Modal = ({ showModal, setShowModal, job }) => {
                                     <h3 className="text-3xl font-semibold">
                                         Job Title: {job.Job_Title}
                                     </h3>
-                                    
+
 
                                 </div>
                                 {/*body*/}
                                 <div className="relative p-6 flex-auto lg:w-[700px]">
-                                    <form className="card-body w-full">
+                                    <form onSubmit={handleApplyJob} className="card-body w-full">
                                         <div className="form-control">
                                             <label className="label">
                                                 <span className="label-text text-xl font-bold">User Name</span>
@@ -43,7 +87,7 @@ const Modal = ({ showModal, setShowModal, job }) => {
                                             <label className="label">
                                                 <span className="label-text text-xl font-bold">Resume Link</span>
                                             </label>
-                                            <input type="password"  name='resume' placeholder="password" className="input input-bordered" required />
+                                            <input type="text" name='resume' placeholder="Resume Link" className="input input-bordered" required />
 
                                         </div>
                                         {/*footer*/}
@@ -59,7 +103,7 @@ const Modal = ({ showModal, setShowModal, job }) => {
 
                                                 className="bg-[#d2f34c] text-black active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 hover:bg-green-600 hover:text-white"
                                                 type="submit"
-                                                onClick={() => setShowModal(false)}
+
                                             >
                                                 Submit Application
                                             </button>
