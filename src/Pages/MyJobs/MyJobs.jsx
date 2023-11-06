@@ -10,15 +10,22 @@ const MyJobs = () => {
     const {user} = useContext(AuthContext)
     const [myJobs, setMyJobs] = useState([])
     
+    
     useEffect(()=> {
         axios.get(`http://localhost:5000/jobs?email=${user.email}`)
         .then(res => setMyJobs(res.data))
     },[user])
-    console.log(myJobs);
+    // console.log(myJobs);
+    const [cards, setCards] = useState(myJobs)
+    useEffect(() => {
+        setCards(myJobs);
+    }, [myJobs]);
+    console.log(cards);
     return (
         <div>
             <Navbar></Navbar>
             <div>
+                <p className="mt-12 text-center text-lg font-bold">Total Jobs: {cards.length}</p>
             <div className="overflow-x-auto max-w-7xl mx-auto mt-12 mb-12">
                     <table className="table">
                         {/* head */}
@@ -35,7 +42,7 @@ const MyJobs = () => {
                         </thead>
                         <tbody>
                             {
-                               myJobs?.map(job => <MyJobTable key={job._id} job={job}></MyJobTable>)
+                               cards?.map(job => <MyJobTable key={job._id} job={job} cards={cards} setCards={setCards}></MyJobTable>)
                             }
                         </tbody>
 

@@ -18,17 +18,17 @@ const ModalUpdate = ({ showModal, setShowModal, updateJob }) => {
     // const [showDate, setShowDate] = useState(false)
     // const [showEndDate, setShowEndDate] = useState(false)
     const dateStr = Job_Posting_Date ? Job_Posting_Date.split("-") : ["2023", "11", "06"]; 
-    console.log(dateStr);
+    // console.log(dateStr);
     const dateStrYear = parseInt(dateStr[2]);
-    console.log(dateStrYear);
+    // console.log(dateStrYear);
     const dateStrMonth = parseInt(dateStr[1]);
     const dateStrDay = parseInt(dateStr[0]);
 
-    console.log(typeof dateStrYear, typeof dateStrMonth, typeof dateStrDay);
-    console.log(dateStrYear, dateStrMonth, dateStrDay);
-    const currentYear = new Date().getFullYear();
+    // console.log(typeof dateStrYear, typeof dateStrMonth, typeof dateStrDay);
+    // console.log(dateStrYear, dateStrMonth, dateStrDay);
+   
 
-    const [startDateState, setStartDateState] = useState(new Date(currentYear, dateStrMonth-1, dateStrDay));
+    const [startDateState, setStartDateState] = useState(new Date(dateStrYear, dateStrMonth-1, dateStrDay));
 
     // const dateStr2 = Application_Deadline ? Application_Deadline.split("-") : "12-10-2023"
     // const dateStrYear2 = parseInt(dateStr2[2])
@@ -46,8 +46,8 @@ const ModalUpdate = ({ showModal, setShowModal, updateJob }) => {
     const months = (endDate.getMonth() + 1).toString().padStart(2, '0');
     const years = endDate.getFullYear();
     const formattedEndDate = `${days}-${months}-${years}`;
-    console.log(formattedStartDate, formattedEndDate);
-    console.log(startDateState, endDate);
+    // console.log(formattedStartDate, formattedEndDate);
+    // console.log(startDateState, endDate);
     const handleUpdateJob = e => {
         e.preventDefault()
         const form = e.target;
