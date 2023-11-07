@@ -3,19 +3,20 @@ import { PropTypes } from 'prop-types';
 import { useState } from 'react';
 import ModalUpdate from '../../../components/ModalUpdate/ModalUpdate';
 import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
 
 
 
 const MyJobTable = ({ job, cards, setCards }) => {
     console.log(cards);
-    const [showModal, setShowModal] = useState(false);
+    // const [showModal, setShowModal] = useState(false);
     const [updateJob, setUpdateJob] = useState({})
-    const { _id, Posted_by, Job_Title, Job_Posting_Date, Application_Deadline, Salary_Range, Job_Applicants_Number, Job_Type, Job_Image, Job_Description, userEmail } = job
+    const { _id, Posted_by, Job_Title, Job_Posting_Date, Application_Deadline, Salary_Range, Job_Image } = job
 
-    const handleUpdate = (job) => {
-        setUpdateJob(job)
-        setShowModal(true)
-    }
+    // const handleUpdate = (job) => {
+    //     setUpdateJob(job)
+    //     setShowModal(true)
+    // }
     const handleDelete = id => {
         console.log(id);
         Swal.fire({
@@ -47,7 +48,7 @@ const MyJobTable = ({ job, cards, setCards }) => {
                             console.log(remaining);
 
                         }
-                       
+
 
                     })
 
@@ -77,7 +78,10 @@ const MyJobTable = ({ job, cards, setCards }) => {
                 </td>
                 <th className='space-x-2'>
 
-                    <button onClick={() => handleUpdate(job)} className="btn bg-green-600 text-white btn-xs">Update</button>
+                    {/* <button onClick={() => handleUpdate(job)} className="btn bg-green-600 text-white btn-xs">Update</button> */}
+                    <Link to={`/update/${_id}`}>
+                        <button className="btn bg-green-600 text-white btn-xs">Update</button>
+                    </Link>
 
 
                 </th>
@@ -86,7 +90,7 @@ const MyJobTable = ({ job, cards, setCards }) => {
                 </th>
             </tr>
 
-            <ModalUpdate showModal={showModal} setShowModal={setShowModal} updateJob={updateJob}></ModalUpdate>
+            {/* <ModalUpdate showModal={showModal} setShowModal={setShowModal} updateJob={updateJob}></ModalUpdate> */}
 
 
         </>

@@ -10,6 +10,7 @@ import toast from "react-hot-toast";
 import Modal from "../Modal/Modal";
 
 
+
 const JobDetails = () => {
     const {user} = useContext(AuthContext)
     const { id } = useParams()
@@ -33,6 +34,7 @@ const JobDetails = () => {
     const currentDate = new Date()
     const formattedDate = currentDate.toLocaleString();
     console.log(showModal);
+  
 
 
     const handleApplication = (dateStr) => {
@@ -121,6 +123,7 @@ const JobDetails = () => {
                     </div>
 
                     <Modal showModal={showModal} job={job} setShowModal={setShowModal}></Modal>
+                    
                     
 
                 </div>

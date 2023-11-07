@@ -1,12 +1,17 @@
 
 import { PropTypes } from 'prop-types';
-import { useContext } from 'react';
+import { useContext, useRef } from 'react';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import emailjs from '@emailjs/browser';
+import ContactUs from '../ContactUs/ContactUs';
+import toast from 'react-hot-toast';
+
 
 const Modal = ({ showModal, setShowModal, job }) => {
+    
     const queryClient = useQueryClient()
     const { user } = useContext(AuthContext)
     const { Posted_by, Job_Title, Job_Posting_Date, Application_Deadline, Salary_Range, Job_Applicants_Number, Job_Type, Job_Description, Job_Image } = job
@@ -18,7 +23,7 @@ const Modal = ({ showModal, setShowModal, job }) => {
     const mutation = useMutation({
         mutationFn: addAppliedJob,
         onSuccess: (data) => {
-            console.log("added")
+            // console.log("added")
             console.log(data);
             if(data.insertedId){
                 Swal.fire({
@@ -31,6 +36,26 @@ const Modal = ({ showModal, setShowModal, job }) => {
             queryClient.invalidateQueries({ queryKey: ['appliedJob'] })
         },
     })
+    const form = useRef();
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        handleApplyJob(e);
+        sendEmail(e);
+    };
+    const sendEmail = (e) => {
+        e.preventDefault();
+        
+    
+        emailjs.sendForm('service_nbmux6f', 'template_t3455i9', form.current, 'N7sCXhxC1NSQ36mKf')
+          .then((result) => {
+              console.log(result.text);
+              if(result.text){
+                toast.success("Check Your Email Message Sent", {duration: 5000})
+              }
+          }, (error) => {
+              console.log(error.text);
+          });
+      };
 
     const handleApplyJob = e => {
         const newJob = {
@@ -69,7 +94,7 @@ const Modal = ({ showModal, setShowModal, job }) => {
                                 </div>
                                 {/*body*/}
                                 <div className="relative p-6 flex-auto lg:w-[700px]">
-                                    <form onSubmit={handleApplyJob} className="card-body w-full">
+                                    <form onSubmit={handleSubmit} className="card-body w-full">
                                         <div className="form-control">
                                             <label className="label">
                                                 <span className="label-text text-xl font-bold">User Name</span>
@@ -115,6 +140,7 @@ const Modal = ({ showModal, setShowModal, job }) => {
 
                             </div>
                         </div>
+                        <ContactUs sendEmail={sendEmail} form={form}></ContactUs>
                     </div>
                     <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
                 </>
