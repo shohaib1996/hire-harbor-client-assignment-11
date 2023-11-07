@@ -26,7 +26,7 @@ const AppliedJobCard = ({ job }) => {
                     Your Email: <span className='font-bold'>{email}</span>
                 </p>
                 <div className="card-actions justify-end">
-                    <button className="btn btn-primary">Watch</button>
+                    <button className="btn bg-green-600 text-white font-bold">Applied</button>
                 </div>
             </div>
         </div>

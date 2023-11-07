@@ -4,28 +4,50 @@ import Navbar from "../../SharedComponents/Navbar/Navbar";
 import Banner from "../../components/Banner/Banner";
 import { Tab, Tabs, TabList } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
-import { useLoaderData } from "react-router-dom";
+// import { useLoaderData } from "react-router-dom";
 import JobCardsByCategory from "../../components/JobCardsByCategory/JobCardsByCategory";
 import { Helmet } from "react-helmet-async";
 
 import CountUpSection from "../../components/CountUpSection/CountUpSection";
+import VideoSection from "../../components/VideoSection/VideoSection";
+
 
 
 
 const Home = () => {
     const [categories, setCategories] = useState([])
+    const [itemsPerPage] = useState(3)
+    const [currentPage, setCurrentPage] = useState(0)
+
     const [tabIndex, setTabIndex] = useState(0);
-    const [type, setType] = useState("On Site Job")
-    const jobs = useLoaderData()
+    const [type, setType] = useState("Remote Job")
+    const [jobs, setJobs] = useState([])
     const filteredJobs = jobs.filter(job => job.Job_Type.toLowerCase() === type.toLowerCase());
     const jobsToDisplay = filteredJobs.length > 0 ? filteredJobs : jobs;
-    console.log(jobsToDisplay);
+    // console.log(jobsToDisplay);
+    const startIndex = currentPage * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    const jobToDisplayed = jobsToDisplay.slice(startIndex, endIndex)
+    // console.log(jobToDisplayed);
 
     useEffect(() => {
-        fetch("http://localhost:5000/category")
+        fetch("http://localhost:5000/category", {credentials: "include"})
             .then(res => res.json())
             .then(data => setCategories(data))
     }, [])
+    useEffect(() => {
+        fetch("http://localhost:5000/jobs", {credentials: "include"})
+            .then(res => res.json())
+            .then(data => setJobs(data))
+    },[])
+    const count = jobsToDisplay.length
+    // console.log(count);
+    const numberOfPages = Math.ceil(count / itemsPerPage)
+    const pages = [...Array(numberOfPages).keys()]
+    // console.log(currentPage);
+
+
+
 
 
     return (
@@ -69,14 +91,28 @@ const Home = () => {
                         <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-7 justify-items-center mt-10">
 
                             {
-                                jobsToDisplay?.map(job => <JobCardsByCategory key={job.id} job={job}></JobCardsByCategory>)
+                               jobToDisplayed?.map(job => <JobCardsByCategory key={job.id} job={job}></JobCardsByCategory>)
                             }
 
                         </div>
 
                     </Tabs>
+
+                </div>
+                <div className="max-w-5xl mx-auto mb-12 text-center space-x-5">
+                    <button onClick={() => setCurrentPage(Math.max(0, currentPage - 1))} className="btn">Prev</button>
+                    {
+                        pages.map(page =>
+                            <button
+                                onClick={() => setCurrentPage(page)}
+                                key={page}
+                                className={currentPage == page ? `btn hover:bg-lime-500 bg-lime-500 text-white`: `btn hover:bg-black bg-black text-white`}>{page}
+                            </button>)
+                    }
+                    <button onClick={() => setCurrentPage(Math.min(currentPage + 1, pages.length - 1))} className="btn">Next</button>
                 </div>
             </div>
+            <VideoSection></VideoSection>
             <CountUpSection></CountUpSection>
             <Footer></Footer>
         </div>

@@ -24,12 +24,12 @@ const router = createBrowserRouter([
             {
                 path: "/",
                 element: <Home></Home>,
-                loader: () => fetch('http://localhost:5000/jobs')
+                // loader: () => fetch('http://localhost:5000/jobs' , {credentials: "include"})
             },
             {
                 path: "/all-jobs",
                 element: <AllJobs></AllJobs>,
-                loader: () => fetch('http://localhost:5000/jobs')
+                loader: () => fetch('http://localhost:5000/jobCount')
             },
             {
                 path: "/applied-jobs",

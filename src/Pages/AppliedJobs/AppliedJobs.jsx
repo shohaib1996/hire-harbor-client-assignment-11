@@ -16,11 +16,13 @@ const AppliedJobs = () => {
 
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/applied-job?email=${user?.email}`)
+        if(user){
+            axios.get(`http://localhost:5000/applied-job?email=${user?.email}`, { withCredentials: true })
             .then(res => {
                 setAppliedJobs(res.data)
                 setFilteredJobs(res.data)
             })
+        }
     }, [user])
     console.log(filteredJobs);
 
