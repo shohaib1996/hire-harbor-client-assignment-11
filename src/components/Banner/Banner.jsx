@@ -2,14 +2,14 @@
 import { motion } from 'framer-motion';
 const Banner = () => {
     return (
-        <div className="flex items-center justify-center max-w-screen-xl mx-auto p-5">
+        <div className="flex flex-col-reverse lg:flex-row items-center justify-center max-w-screen-xl mx-auto p-5">
             <motion.div
                 initial={{ x: -350 }}
                 animate={{ x: -10 }}
                 transition={{ duration: 0.5, delay: 0.25 }}
                 className="flex-1 space-y-7">
-                <h1 className="text-[#005025] text-4xl lg:text-6xl font-bold">HireHarbor - Your Gateway to Talent and Opportunities</h1>
-                <p className="text-lg text-[#6c757d]">HireHarbor is your compass in the world of job hunting and talent acquisition. We streamline the process of connecting job seekers with employers, providing a simplified, effective, and secure platform. Chart your career course or discover your next star employee with HireHarbor</p>
+                <h1 className="text-[#005025] text-3xl text-center lg:text-left lg:text-6xl font-bold">HireHarbor - Your Gateway to Talent and Opportunities</h1>
+                <p className="text-lg text-[#6c757d] text-center lg:text-left">HireHarbor is your compass in the world of job hunting and talent acquisition. We streamline the process of connecting job seekers with employers, providing a simplified, effective, and secure platform. Chart your career course or discover your next star employee with HireHarbor</p>
                 <div className="form-control">
                     <label className="input-group">
                         <input type="text" placeholder="Search Job..." className="input w-2/3 input-bordered" />
@@ -21,7 +21,7 @@ const Banner = () => {
                 initial={{ x: 350 }}
                 animate={{ x: 10 }}
                 transition={{ duration: 0.5, delay: 0.25 }}
-                className="flex-1 relative">
+                className="flex-1 relative mb-3 lg:mb-0">
                 <img src="https://jobi-nextjs.vercel.app/_next/static/media/ils_01.ac504e33.svg" alt="" />
                 <motion.div
                     initial={{ y: 100 }}

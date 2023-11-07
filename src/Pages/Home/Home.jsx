@@ -65,7 +65,7 @@ const Home = () => {
                     <Tabs>
                         <div className="">
                             <TabList>
-                                <div className="grid grid-cols-5 gap-5">
+                                <div className="grid grid-cols-1 p-3 lg:p-0 lg:grid-cols-5 gap-5">
                                     {categories?.map((category, index) => (
                                         <Tab
                                             key={category._id}
@@ -88,7 +88,7 @@ const Home = () => {
                             </TabList>
                         </div>
 
-                        <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-7 justify-items-center mt-10">
+                        <div className="max-w-5xl mx-auto grid p-3 lg:p-0 grid-cols-1 lg:grid-cols-3 gap-7 justify-items-center mt-10">
 
                             {
                                jobToDisplayed?.map(job => <JobCardsByCategory key={job.id} job={job}></JobCardsByCategory>)
@@ -100,16 +100,16 @@ const Home = () => {
 
                 </div>
                 <div className="max-w-5xl mx-auto mb-12 text-center space-x-5">
-                    <button onClick={() => setCurrentPage(Math.max(0, currentPage - 1))} className="btn">Prev</button>
+                    <button onClick={() => setCurrentPage(Math.max(0, currentPage - 1))} className="lg:btn btn-xs bg-green-500">Prev</button>
                     {
                         pages.map(page =>
                             <button
                                 onClick={() => setCurrentPage(page)}
                                 key={page}
-                                className={currentPage == page ? `btn hover:bg-lime-500 bg-lime-500 text-white`: `btn hover:bg-black bg-black text-white`}>{page}
+                                className={currentPage == page ? `btn btn-sm lg:btn-base hover:bg-lime-500 bg-lime-500 text-white`: `btn btn-sm lg:btn-base hover:bg-black bg-black text-white`}>{page}
                             </button>)
                     }
-                    <button onClick={() => setCurrentPage(Math.min(currentPage + 1, pages.length - 1))} className="btn">Next</button>
+                    <button onClick={() => setCurrentPage(Math.min(currentPage + 1, pages.length - 1))} className="lg:btn btn-xs ">Next</button>
                 </div>
             </div>
             <VideoSection></VideoSection>

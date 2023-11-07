@@ -1,4 +1,5 @@
 import ReactPlayer from "react-player";
+import { PropTypes } from 'prop-types';
 
 
 const VideoModal = ({showModal, setShowModal}) => {
@@ -32,5 +33,10 @@ const VideoModal = ({showModal, setShowModal}) => {
         </div>
     );
 };
+VideoModal.propTypes = {
+    showModal: PropTypes.bol,
+    setShowModal: PropTypes.func,
+    
+}
 
 export default VideoModal;

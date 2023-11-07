@@ -33,7 +33,9 @@ const Navbar = () => {
                     All Jobs
                 </NavLink>
             </li>
-            <li>
+            {
+                user?.email && <>
+                <li>
                 <NavLink
                     to="/applied-jobs"
                     className={({ isActive, isPending }) =>
@@ -65,16 +67,6 @@ const Navbar = () => {
             </li>
             <li>
                 <NavLink
-                    to="/blogs"
-                    className={({ isActive, isPending }) =>
-                        isPending ? "pending" : isActive ? "text-green-600" : ""
-                    }
-                >
-                    Blogs
-                </NavLink>
-            </li>
-            <li>
-                <NavLink
                     to="/user-profile"
                     className={({ isActive, isPending }) =>
                         isPending ? "pending" : isActive ? "text-green-600" : ""
@@ -83,6 +75,19 @@ const Navbar = () => {
                     User Profile
                 </NavLink>
             </li>
+                </>
+            }
+            <li>
+                <NavLink
+                    to="/blogs"
+                    className={({ isActive, isPending }) =>
+                        isPending ? "pending" : isActive ? "text-green-600" : ""
+                    }
+                >
+                    Blogs
+                </NavLink>
+            </li>
+            
 
         </>
     );
@@ -105,7 +110,7 @@ const Navbar = () => {
             <div className="navbar max-w-screen-xl mx-auto">
                 <div className="navbar-start">
                     <div className="dropdown ">
-                        <label tabIndex={0} className="btn btn-ghost lg:hidden">
+                        <label tabIndex={0} className="btn btn-primary bg-lime-500 lg:hidden">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                         </label>
                         <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
@@ -113,7 +118,7 @@ const Navbar = () => {
 
                         </ul>
                     </div>
-                    <div className="flex items-center">
+                    <div className=" items-center hidden lg:flex">
                         <a className="hidden lg:flex normal-case text-xl">
                             <img className="h-10 w-12" src="/images/hireharborLogo-removebg-preview.png" alt="" />
                         </a>
