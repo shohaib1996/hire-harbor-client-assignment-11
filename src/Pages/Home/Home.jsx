@@ -8,6 +8,8 @@ import { useLoaderData } from "react-router-dom";
 import JobCardsByCategory from "../../components/JobCardsByCategory/JobCardsByCategory";
 import { Helmet } from "react-helmet-async";
 
+import CountUpSection from "../../components/CountUpSection/CountUpSection";
+
 
 
 const Home = () => {
@@ -75,6 +77,7 @@ const Home = () => {
                     </Tabs>
                 </div>
             </div>
+            <CountUpSection></CountUpSection>
             <Footer></Footer>
         </div>
     );
