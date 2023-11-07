@@ -2,10 +2,12 @@ import { useEffect, useState } from "react";
 import Footer from "../../SharedComponents/Footer/Footer";
 import Navbar from "../../SharedComponents/Navbar/Navbar";
 import Banner from "../../components/Banner/Banner";
-import { Tab, Tabs, TabList} from 'react-tabs';
+import { Tab, Tabs, TabList } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import { useLoaderData } from "react-router-dom";
 import JobCardsByCategory from "../../components/JobCardsByCategory/JobCardsByCategory";
+import { Helmet } from "react-helmet-async";
+
 
 
 const Home = () => {
@@ -26,6 +28,9 @@ const Home = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>hireHarbor | Home</title>
+            </Helmet>
             <Navbar></Navbar>
             <div>
                 <Banner></Banner>
@@ -60,13 +65,13 @@ const Home = () => {
                         </div>
 
                         <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-7 justify-items-center mt-10">
-                           
-                                {
-                                    jobsToDisplay?.map(job => <JobCardsByCategory key={job.id} job={job}></JobCardsByCategory>)
-                                }
-                            
+
+                            {
+                                jobsToDisplay?.map(job => <JobCardsByCategory key={job.id} job={job}></JobCardsByCategory>)
+                            }
+
                         </div>
-                        
+
                     </Tabs>
                 </div>
             </div>

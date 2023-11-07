@@ -4,6 +4,7 @@ import Navbar from "../../SharedComponents/Navbar/Navbar";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import axios from "axios";
 import MyJobTable from "./MyJobTable/MyJobTable";
+import { Helmet } from "react-helmet-async";
 
 
 const MyJobs = () => {
@@ -23,6 +24,9 @@ const MyJobs = () => {
     console.log(cards);
     return (
         <div>
+            <Helmet>
+                <title>hireHarbor | MyJobs</title>
+            </Helmet>
             <Navbar></Navbar>
             <div>
                 <p className="mt-12 text-center text-lg font-bold">Total Jobs: {cards.length}</p>

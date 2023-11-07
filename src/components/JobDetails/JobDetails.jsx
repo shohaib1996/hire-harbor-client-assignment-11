@@ -8,6 +8,7 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import toast from "react-hot-toast";
 import Modal from "../Modal/Modal";
+import { Helmet } from "react-helmet-async";
 
 
 
@@ -71,6 +72,9 @@ const JobDetails = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>hireHarbor | JobDetails</title>
+            </Helmet>
             <Navbar></Navbar>
             <div className="flex max-w-6xl mx-auto mt-10 pb-12 gap-5">
                 <div className="w-2/3 p-5 ">

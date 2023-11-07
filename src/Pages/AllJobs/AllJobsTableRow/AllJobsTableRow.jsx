@@ -5,6 +5,7 @@ import { AuthContext } from '../../../AuthProvider/AuthProvider';
 import toast from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
 
+
 const AllJobsTableRow = ({ job }) => {
     const { user } = useContext(AuthContext)
     const navigate = useNavigate()
@@ -17,7 +18,9 @@ const AllJobsTableRow = ({ job }) => {
     }
     return (
         <>
-            <tr className='text-center'>
+            <tr
+                
+                className='text-center'>
                 <th>
                     <img src={Job_Image} className='w-48 h-40 rounded-lg border-2' alt="" />
                 </th>

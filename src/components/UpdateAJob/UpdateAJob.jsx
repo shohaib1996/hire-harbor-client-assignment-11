@@ -5,6 +5,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import DatePicker from "react-datepicker";
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 
 const UpdateAJob = () => {
     const job = useLoaderData()
@@ -81,6 +82,9 @@ const UpdateAJob = () => {
     }
     return (
         <div>
+            <Helmet>
+                <title>hireHarbor | UpdateAJob</title>
+            </Helmet>
             <Navbar></Navbar>
             <div>
                 <form onSubmit={handleUpdateJob} className=' max-w-4xl mx-auto p-5 mt-12 pb-12 mb-12 border-2 rounded-lg'>

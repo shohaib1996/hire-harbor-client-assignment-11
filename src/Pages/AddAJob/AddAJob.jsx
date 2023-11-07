@@ -8,6 +8,7 @@ import { AuthContext } from "../../AuthProvider/AuthProvider";
 import axios from "axios";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 
 const AddAJob = () => {
@@ -78,6 +79,9 @@ const AddAJob = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>hireHarbor | AddAJob</title>
+            </Helmet>
             <Navbar></Navbar>
             <div>
                 <form onSubmit={handleAddJob} className='max-w-screen-md mx-auto p-5 mt-12 pb-12 mb-12 border-2 rounded-lg'>

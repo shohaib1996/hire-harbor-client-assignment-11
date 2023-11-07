@@ -5,6 +5,7 @@ import Navbar from "../../SharedComponents/Navbar/Navbar";
 import Footer from "../../SharedComponents/Footer/Footer";
 import AppliedJobCard from "../../components/AppliedJobCard/AppliedJobCard";
 import NoJobAvailable from "../../components/NoJobAvailable/NoJobAvailable";
+import { Helmet } from "react-helmet-async";
 
 
 
@@ -39,6 +40,9 @@ const AppliedJobs = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>hireHarbor | AppliedJobs</title>
+            </Helmet>
             <Navbar></Navbar>
             <div>
                 {

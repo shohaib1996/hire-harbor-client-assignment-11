@@ -7,6 +7,7 @@ import toast from "react-hot-toast";
 import { useContext } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { updateProfile } from "firebase/auth";
+import { Helmet } from "react-helmet-async";
 
 
 const Register = () => {
@@ -68,6 +69,9 @@ const Register = () => {
     }
     return (
         <div>
+            <Helmet>
+                <title>hireHarbor | Register</title>
+            </Helmet>
             <div className="max-w-6xl mx-auto">
                 <div><Navbar></Navbar></div>
                 <div className="hero min-h-screen">

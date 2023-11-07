@@ -5,6 +5,7 @@ import Swal from "sweetalert2";
 import toast from "react-hot-toast";
 import { useContext } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import { Helmet } from "react-helmet-async";
 
 
 
@@ -54,6 +55,9 @@ const Login = () => {
     return (
 
         <div>
+            <Helmet>
+                <title>hireHarbor | Login</title>
+            </Helmet>
             <div className="max-w-6xl mx-auto">
                 <div><Navbar></Navbar></div>
                 <div className="hero min-h-screen">

@@ -4,6 +4,7 @@ import { AuthContext } from "../../AuthProvider/AuthProvider";
 import toast from "react-hot-toast";
 import 'react-tooltip/dist/react-tooltip.css'
 import { Tooltip } from 'react-tooltip'
+import { motion } from "framer-motion"
 
 
 const Navbar = () => {
@@ -113,8 +114,25 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <div className="flex items-center">
-                        <a className="hidden lg:flex normal-case text-xl"><img className="h-10 w-12" src="/images/hireharborLogo-removebg-preview.png" alt="" /></a>
-                        <img className="h-10 w-40" src="/images/hireHarvor-removebg-preview.png" alt="" />
+                        <a className="hidden lg:flex normal-case text-xl">
+                            <img className="h-10 w-12" src="/images/hireharborLogo-removebg-preview.png" alt="" />
+                        </a>
+                        <motion.div
+                            animate={{
+                                scale: [1, 1, 1, 1, 1],
+                                rotate: [0, 0, 180, 180, 0],
+                                borderRadius: ["0%", "0%", "50%", "50%", "0%"]
+                            }}
+                            transition={{
+                                duration: 2,
+                                ease: "easeInOut",
+                                times: [0, 0.2, 0.5, 0.8, 1],
+                                repeat: Infinity,
+                                repeatDelay: 1
+                            }}
+                        >
+                            <img className="h-10 w-40" src="/images/hireHarvor-removebg-preview.png" alt="" />
+                        </motion.div>
 
 
 
@@ -132,7 +150,7 @@ const Navbar = () => {
                             <div className="dropdown dropdown-end">
                                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                                     <div data-tooltip-id="my-tooltip" data-tooltip-content={`${user?.displayName && user.displayName}`} className="w-10 rounded-full">
-                                        <img  src={user?.photoURL} />
+                                        <img src={user?.photoURL} />
                                         <Tooltip id="my-tooltip" />
                                     </div>
                                 </label>
@@ -147,11 +165,19 @@ const Navbar = () => {
                             </div>
                         </div>
 
-                        : <div className="navbar-end">
+                        : <motion.div
+                            initial={{ scale: 0 }}
+                            animate={{ rotate: 360, scale: 1 }}
+                            transition={{
+                                ease: "linear",
+                                duration: 0.5,
+                                x: { duration: 0.5 }
+                              }}
+                            className="navbar-end">
                             <Link to="/login">
                                 <button className="btn bg-green-600 px-5 rounded-2xl hover:bg-slate-400 border-none py-2 text-white">Login</button>
                             </Link>
-                        </div>
+                        </motion.div>
 
                 }
 
