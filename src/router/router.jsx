@@ -24,12 +24,12 @@ const router = createBrowserRouter([
             {
                 path: "/",
                 element: <Home></Home>,
-                // loader: () => fetch('http://localhost:5000/jobs' , {credentials: "include"})
+                // loader: () => fetch('https://hire-harbor-server.vercel.app/jobs' , {credentials: "include"})
             },
             {
                 path: "/all-jobs",
                 element: <AllJobs></AllJobs>,
-                loader: () => fetch('http://localhost:5000/jobCount')
+                loader: () => fetch('https://hire-harbor-server.vercel.app/jobCount')
             },
             {
                 path: "/applied-jobs",
@@ -66,7 +66,7 @@ const router = createBrowserRouter([
             {
                 path: "/update/:id",
                 element: <PrivateRoute><UpdateAJob></UpdateAJob></PrivateRoute>,
-                loader: ({params}) => fetch(`http://localhost:5000/jobs/${params.id}`)
+                loader: ({params}) => fetch(`https://hire-harbor-server.vercel.app/jobs/${params.id}`)
             }
         ]
     }

@@ -13,7 +13,7 @@ const VideoSection = () => {
                     <img className="w-full rounded-xl h-[350px] lg:h-[450px]" src="https://img.freepik.com/free-photo/computer-business-laptop-working-woman_1303-1770.jpg?t=st=1699367699~exp=1699368299~hmac=f2dfcce0cf836ff53b3d05f1488bb6d34e4598f6b4710dabd3289b20181347ad" alt="" />
 
                     <div className="">
-                        <p className="text-2xl lg:text-5xl font-extrabold absolute top-1/2 left-3 lg:left-0 lg:top-1/3 w-full lg:w-[350px] lg:right-3 text-white">Let’s get started <span className="text-green-400">It’s simple.</span></p>
+                        <p className="text-2xl lg:text-5xl font-extrabold absolute top-1/2 left-3 lg:top-1/3 w-full lg:w-[350px] lg:left-96 text-white">Let’s get started <span className="text-green-400">It’s simple.</span></p>
                         <p onClick={() => setShowModal(true)} className="text-6xl font-bold text-lime-500 absolute top-20 left-2/3 hover:scale-110 transform transition-transform duration-300" title="Click"><FaPlayCircle></FaPlayCircle></p>
 
                     </div>

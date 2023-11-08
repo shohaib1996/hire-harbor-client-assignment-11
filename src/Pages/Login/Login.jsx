@@ -38,7 +38,10 @@ const Login = () => {
 
 
             })
-            .catch(error => console.error(error))
+            .catch(error => {
+                console.error(error)
+                toast.error("Email and Password does not Found")
+            })
     }
     const handleSocial = (media) => {
         media()

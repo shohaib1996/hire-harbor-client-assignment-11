@@ -28,7 +28,7 @@ const AllJobs = () => {
     console.log(jobToDisplayed);
 
     useEffect(() => {
-        axios.get("http://localhost:5000/jobs", {withCredentials: true})
+        axios.get("https://hire-harbor-server.vercel.app/jobs", {withCredentials: true})
             .then(res => setJobs(res.data))
     }, [])
    

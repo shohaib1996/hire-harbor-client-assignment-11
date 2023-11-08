@@ -1,8 +1,19 @@
-# React + Vite
+# HireHarbor
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Live Link : 
 
-Currently, two official plugins are available:
+# 1 . Job Search:
+ Users can search for specific jobs in the "AllJobs" component by entering keywords in an input field and clicking the "Search" button. The search functionality filters the job listings accordingly. 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# 2 . Add Job Functionality: 
+The "AddAJob" component allows users to add new job listings by filling out a form. This is a key feature for job posting platforms.
+
+# 3 . User Authentication:
+ Your website likely supports user authentication, as seen in the "MyJobs" and "AppliedJobs" components where user-specific data is retrieved and users are able to add job listings.
+
+# 4 . Tabbed Categories: 
+The "Home" component features a tabbed interface for different job categories. Users can click on tabs to view job listings in specific categories. 
+# 5 . Pagination: 
+In the "Home" and "AllJobs" component, pagination controls are provided to navigate through multiple pages of job listings. This feature enhances user experience when dealing with large datasets.
+
+

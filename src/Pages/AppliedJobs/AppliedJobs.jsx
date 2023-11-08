@@ -17,7 +17,7 @@ const AppliedJobs = () => {
 
     useEffect(() => {
         if(user){
-            axios.get(`http://localhost:5000/applied-job?email=${user?.email}`, { withCredentials: true })
+            axios.get(`https://hire-harbor-server.vercel.app/applied-job?email=${user?.email}`, { withCredentials: true })
             .then(res => {
                 setAppliedJobs(res.data)
                 setFilteredJobs(res.data)

@@ -17,7 +17,7 @@ const Modal = ({ showModal, setShowModal, job }) => {
     const { Posted_by, Job_Title, Job_Posting_Date, Application_Deadline, Salary_Range, Job_Applicants_Number, Job_Type, Job_Description, Job_Image } = job
 
     const addAppliedJob = async (appliedJob) => {
-        const res = await axios.post("http://localhost:5000/applied-job", appliedJob)
+        const res = await axios.post("https://hire-harbor-server.vercel.app/applied-job", appliedJob)
         return res.data
     }
     const mutation = useMutation({

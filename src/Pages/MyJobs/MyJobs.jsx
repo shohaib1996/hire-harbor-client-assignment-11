@@ -13,7 +13,7 @@ const MyJobs = () => {
     
     
     useEffect(()=> {
-        axios.get(`http://localhost:5000/jobs?email=${user.email}`, {withCredentials: true})
+        axios.get(`https://hire-harbor-server.vercel.app/jobs?email=${user.email}`, {withCredentials: true})
         .then(res => setMyJobs(res.data))
     },[user])
     // console.log(myJobs);

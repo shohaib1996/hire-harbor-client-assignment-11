@@ -20,7 +20,7 @@ const JobDetails = () => {
     const { data: job, isLoading } = useQuery({
         queryKey: ["jobs"],
         queryFn: async () => {
-            const res = await axios.get(`http://localhost:5000/jobs/${id}`)
+            const res = await axios.get(`https://hire-harbor-server.vercel.app/jobs/${id}`)
             const data = await res.data
             return data
         },

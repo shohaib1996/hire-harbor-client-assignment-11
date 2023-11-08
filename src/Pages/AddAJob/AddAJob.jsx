@@ -30,7 +30,7 @@ const AddAJob = () => {
     
 
     const addAJob = async (job) => {
-        const res = await axios.post("http://localhost:5000/jobs", job)
+        const res = await axios.post("https://hire-harbor-server.vercel.app/jobs", job)
         return res.data
     }
 

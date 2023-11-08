@@ -61,7 +61,7 @@ const UpdateAJob = () => {
             Posted_by, Job_Title, Job_Posting_Date, Application_Deadline, Salary_Range, Job_Applicants_Number, Job_Type, Job_Image, Job_Description, userEmail
         }
         console.log(job);
-        axios.put(`http://localhost:5000/jobs/${_id}`, job)
+        axios.put(`https://hire-harbor-server.vercel.app/jobs/${_id}`, job)
             .then(res => {
                 console.log(res.data);
                 if (res.data.modifiedCount > 0) {
