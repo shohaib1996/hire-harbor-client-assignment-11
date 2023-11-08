@@ -9,15 +9,15 @@ import TestimonialCards from "./TestimonialCards/TestimonialCards";
 const Testimonial = () => {
     const [testimonials, setTestimonials] = useState([])
     useEffect(() => {
-        fetch("http://localhost:5000/testimonial")
+        fetch("https://hire-harbor-server.vercel.app/testimonial")
             .then(res => res.json())
             .then(data => setTestimonials(data))
     }, [])
     return (
         <div className="max-w-6xl mx-auto">
-            <h1 className="text-5xl  text-center text-green-500 font-bold py-6">Testimonial</h1>
+            <h1 className="lg:text-5xl text-3xl  text-center text-green-500 font-bold py-6">Testimonial</h1>
             <div className="w-3/5 mx-auto space-y-5">
-                <p className="text-5xl font-bold text-center">What Customer Says</p>
+                <p className="lg:text-5xl text-3xl font-bold text-center">What Customer Says</p>
                 
             </div>
             <div className="mb-12 flex flex-col items-center justify-center">
