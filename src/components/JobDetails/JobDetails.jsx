@@ -9,7 +9,7 @@ import { AuthContext } from "../../AuthProvider/AuthProvider";
 import toast from "react-hot-toast";
 import Modal from "../Modal/Modal";
 import { Helmet } from "react-helmet-async";
-import { usePDF } from 'react-to-pdf';
+
 
 
 
@@ -17,7 +17,7 @@ const JobDetails = () => {
     const { user } = useContext(AuthContext)
     const { id } = useParams()
     const [showModal, setShowModal] = useState(false)
-    const { toPDF, targetRef } = usePDF({filename: 'page.pdf'});
+    
     console.log(id);
     const { data: job, isLoading } = useQuery({
         queryKey: ["jobs"],
@@ -78,7 +78,7 @@ const JobDetails = () => {
                 <title>hireHarbor | JobDetails</title>
             </Helmet>
             <Navbar></Navbar>
-            <div ref={targetRef} className="flex max-w-6xl mx-auto mt-10 pb-12 gap-5">
+            <div  className="flex max-w-6xl mx-auto mt-10 pb-12 gap-5">
                 <div className="w-2/3 p-5 ">
                     <p className="text-[#6c757d] font-semibold text-lg">Today: {formattedDate}</p>
                     <h1 className="text-3xl lg:text-5xl font-extrabold">{Job_Title}</h1>
@@ -127,9 +127,7 @@ const JobDetails = () => {
                         </div>
                         <button onClick={() => handleApplication(Application_Deadline)} className="w-full btn bg-green-600 mt-12 hover:bg-teal-500 text-white border-none">Apply Now</button>
                     </div>
-                    <div className="flex items-center justify-center">
-                        <button onClick={() => toPDF()} className="btn bg-lime-400 mt-5 text-center hover:bg-green">Download PDF</button>
-                    </div>
+                    
 
                     <Modal showModal={showModal} job={job} setShowModal={setShowModal}></Modal>
 

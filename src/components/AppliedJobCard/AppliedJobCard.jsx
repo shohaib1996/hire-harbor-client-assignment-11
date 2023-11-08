@@ -1,7 +1,6 @@
 
 import { PropTypes } from 'prop-types';
-import Skeleton from 'react-loading-skeleton'
-import 'react-loading-skeleton/dist/skeleton.css'
+
 
 const AppliedJobCard = ({ job }) => {
 
@@ -31,7 +30,7 @@ const AppliedJobCard = ({ job }) => {
                     <button className="btn bg-green-600 text-white font-bold">Applied</button>
                 </div>
             </div>
-        </div> || <Skeleton count={10}></Skeleton>
+        </div>
     );
 };
 AppliedJobCard.propTypes = {
