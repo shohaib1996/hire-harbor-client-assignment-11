@@ -107,7 +107,7 @@ const Home = () => {
                             <button
                                 onClick={() => setCurrentPage(page)}
                                 key={page}
-                                className={currentPage == page ? `btn btn-sm lg:btn-base hover:bg-lime-500 bg-lime-500 text-white`: `btn btn-sm lg:btn-base hover:bg-black bg-black text-white`}>{page}
+                                className={currentPage == page ? `btn btn-sm lg:btn-base hover:bg-lime-500 bg-lime-500 text-white`: `btn btn-sm lg:btn-base hover:bg-black bg-black text-white`}>{page + 1}
                             </button>)
                     }
                     <button onClick={() => setCurrentPage(Math.min(currentPage + 1, pages.length - 1))} className="lg:btn btn-xs ">Next</button>

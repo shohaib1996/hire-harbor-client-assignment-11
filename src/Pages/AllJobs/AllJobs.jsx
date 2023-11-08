@@ -102,7 +102,7 @@ const AllJobs = () => {
                             <button
                                 onClick={() => setCurrentPage(page)}
                                 key={page}
-                                className={currentPage == page ? `btn hover:bg-lime-500 bg-lime-500 text-white` : `btn hover:bg-black bg-black text-white`}>{page}
+                                className={currentPage == page ? `btn hover:bg-lime-500 bg-lime-500 text-white` : `btn hover:bg-black bg-black text-white`}>{page + 1}
                             </button>)
                     }
                     <button onClick={() => setCurrentPage(Math.min(currentPage + 1, pages.length - 1))} className="btn">Next</button>
