@@ -1,6 +1,6 @@
 # HireHarbor
 
-# Live Link : 
+# Live Link : https://monumental-medovik-3187d5.netlify.app/
 
 # 1 . Job Search:
  Users can search for specific jobs in the "AllJobs" component by entering keywords in an input field and clicking the "Search" button. The search functionality filters the job listings accordingly. 

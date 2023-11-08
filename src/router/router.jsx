@@ -24,7 +24,7 @@ const router = createBrowserRouter([
             {
                 path: "/",
                 element: <Home></Home>,
-                // loader: () => fetch('https://hire-harbor-server.vercel.app/jobs' , {credentials: "include"})
+               
             },
             {
                 path: "/all-jobs",
