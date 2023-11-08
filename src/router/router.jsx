@@ -66,7 +66,7 @@ const router = createBrowserRouter([
             {
                 path: "/update/:id",
                 element: <PrivateRoute><UpdateAJob></UpdateAJob></PrivateRoute>,
-                loader: ({params}) => fetch(`https://hire-harbor-server.vercel.app/jobs/${params.id}`)
+                loader: ({params}) => fetch(`https://hire-harbor-server.vercel.app/jobs/${params.id}`, {credentials: "include"})
             }
         ]
     }

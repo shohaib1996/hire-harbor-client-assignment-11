@@ -16,6 +16,7 @@ const UpdateAJob = () => {
     const dateStrMonth = parseInt(dateStr[1])
     const dateStrDay = parseInt((dateStr[0]));
     console.log(dateStr);
+    console.log(job);
 
     // console.log(typeof dateStrYear, typeof dateStrMonth, typeof dateStrDay);
     console.log(dateStrYear, dateStrMonth, dateStrDay);
