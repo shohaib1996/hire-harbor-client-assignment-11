@@ -10,6 +10,7 @@ import { Helmet } from "react-helmet-async";
 
 import CountUpSection from "../../components/CountUpSection/CountUpSection";
 import VideoSection from "../../components/VideoSection/VideoSection";
+import Testimonial from "../../components/Testimonial/Testimonial";
 
 
 
@@ -114,6 +115,7 @@ const Home = () => {
             </div>
             <VideoSection></VideoSection>
             <CountUpSection></CountUpSection>
+            <Testimonial></Testimonial>
             <Footer></Footer>
         </div>
     );

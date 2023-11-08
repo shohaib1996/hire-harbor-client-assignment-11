@@ -9,13 +9,15 @@ import { AuthContext } from "../../AuthProvider/AuthProvider";
 import toast from "react-hot-toast";
 import Modal from "../Modal/Modal";
 import { Helmet } from "react-helmet-async";
+import { usePDF } from 'react-to-pdf';
 
 
 
 const JobDetails = () => {
-    const {user} = useContext(AuthContext)
+    const { user } = useContext(AuthContext)
     const { id } = useParams()
     const [showModal, setShowModal] = useState(false)
+    const { toPDF, targetRef } = usePDF({filename: 'page.pdf'});
     console.log(id);
     const { data: job, isLoading } = useQuery({
         queryKey: ["jobs"],
@@ -31,31 +33,31 @@ const JobDetails = () => {
         return <Spinner></Spinner>
     }
 
-    const {  Posted_by, Job_Title, Job_Posting_Date, Application_Deadline, Salary_Range, Job_Applicants_Number, Job_Type, Job_Description, Job_Image } = job
+    const { Posted_by, Job_Title, Job_Posting_Date, Application_Deadline, Salary_Range, Job_Applicants_Number, Job_Type, Job_Description, Job_Image } = job
     const currentDate = new Date()
     const formattedDate = currentDate.toLocaleString();
     console.log(showModal);
-  
+
 
 
     const handleApplication = (dateStr) => {
-        
+
         console.log(dateStr);
         const parts = dateStr.split('-');
         console.log(parts);
         const day = parts[0];
         const month = parts[1];
-        const year = parts[2]; 
+        const year = parts[2];
         const applicationDate = new Date(`${year}-${month}-${day}`);
-    
+
         // console.log(applicationDate, currentDate);
         const applicationTimestamp = applicationDate.getTime();
         const todayTimestamp = currentDate.getTime();
 
         {
-            applicationTimestamp < todayTimestamp || user?.displayName.toLowerCase() ===  Posted_by.toLowerCase() ? toast.error("You can't applied this Job") : setShowModal(true)
+            applicationTimestamp < todayTimestamp || user?.displayName.toLowerCase() === Posted_by.toLowerCase() ? toast.error("You can't applied this Job") : setShowModal(true)
         }
-      
+
         // Compare the timestamps to determine the relationship
         // if (applicationTimestamp < todayTimestamp) {
         //   console.log("The application date is in the past.");
@@ -64,10 +66,10 @@ const JobDetails = () => {
         // } else {
         //   console.log("The application date is today.");
         // }
-      };
-      
-     
-      
+    };
+
+
+
 
 
     return (
@@ -76,7 +78,7 @@ const JobDetails = () => {
                 <title>hireHarbor | JobDetails</title>
             </Helmet>
             <Navbar></Navbar>
-            <div className="flex max-w-6xl mx-auto mt-10 pb-12 gap-5">
+            <div ref={targetRef} className="flex max-w-6xl mx-auto mt-10 pb-12 gap-5">
                 <div className="w-2/3 p-5 ">
                     <p className="text-[#6c757d] font-semibold text-lg">Today: {formattedDate}</p>
                     <h1 className="text-3xl lg:text-5xl font-extrabold">{Job_Title}</h1>
@@ -125,14 +127,16 @@ const JobDetails = () => {
                         </div>
                         <button onClick={() => handleApplication(Application_Deadline)} className="w-full btn bg-green-600 mt-12 hover:bg-teal-500 text-white border-none">Apply Now</button>
                     </div>
+                    <div className="flex items-center justify-center">
+                        <button onClick={() => toPDF()} className="btn bg-lime-400 mt-5 text-center hover:bg-green">Download PDF</button>
+                    </div>
 
                     <Modal showModal={showModal} job={job} setShowModal={setShowModal}></Modal>
-                    
-                    
 
                 </div>
             </div>
-            
+
+
             <Footer></Footer>
 
         </div>
