@@ -32,12 +32,12 @@ const Home = () => {
     // console.log(jobToDisplayed);
 
     useEffect(() => {
-        fetch("https://hire-harbor-server.vercel.app/category", {credentials: "include"})
+        fetch("https://hire-harbor-server.vercel.app/category")
             .then(res => res.json())
             .then(data => setCategories(data))
     }, [])
     useEffect(() => {
-        fetch("https://hire-harbor-server.vercel.app/jobs", {credentials: "include"})
+        fetch("https://hire-harbor-server.vercel.app/jobs")
             .then(res => res.json())
             .then(data => setJobs(data))
     },[])
