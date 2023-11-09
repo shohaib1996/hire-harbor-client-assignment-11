@@ -13,6 +13,7 @@ import UserProfile from "../Pages/UserProfile/UserProfile";
 import JobDetails from "../components/JobDetails/JobDetails";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import UpdateAJob from "../components/UpdateAJob/UpdateAJob";
+import ContactUs from "../components/ContactUs/ContactUs";
 
 
 const router = createBrowserRouter([
@@ -67,6 +68,10 @@ const router = createBrowserRouter([
                 path: "/update/:id",
                 element: <PrivateRoute><UpdateAJob></UpdateAJob></PrivateRoute>,
                 loader: ({params}) => fetch(`https://hire-harbor-server.vercel.app/jobs/${params.id}`, {credentials: "include"})
+            },
+            {
+                path: "/contact",
+                element: <PrivateRoute><ContactUs></ContactUs></PrivateRoute>
             }
         ]
     }

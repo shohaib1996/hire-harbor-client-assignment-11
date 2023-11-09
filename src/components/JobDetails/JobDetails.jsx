@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import Navbar from "../../SharedComponents/Navbar/Navbar";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Spinner from "../../Spinner/Spinner";
 import Footer from "../../SharedComponents/Footer/Footer";
 import { useContext, useState } from "react";
@@ -126,6 +126,10 @@ const JobDetails = () => {
                             <p className="font-bold text-gray-800">$({Salary_Range}) <span className="text-base font-normal">/Year</span></p>
                         </div>
                         <button onClick={() => handleApplication(Application_Deadline)} className="w-full btn bg-green-600 mt-12 hover:bg-teal-500 text-white border-none">Apply Now</button>
+                        <p className="text-lg font-bold text-center my-5 ">If You Have Any question ?</p>
+                        <Link to="/contact">
+                        <button className="w-full btn bg-green-600  hover:bg-teal-500 text-white border-none">Contact Us</button>
+                        </Link>
                     </div>
                     
 
