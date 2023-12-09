@@ -12,3 +12,14 @@
 - The "Home" component features a tabbed interface for different job categories. Users can click on tabs to view job listings in specific categories.
 - In the "Home" and "AllJobs" component, pagination controls are provided to navigate through multiple pages of job listings. This feature enhances user experience when dealing with large datasets.
 
+## Tech Stack
+
+**Client:** React, TailwindCSS, 
+
+**Server:** Node, Express
+
+**Database:** MongoDb
+
+**Authentication:** JWT, Firebase
+
+
