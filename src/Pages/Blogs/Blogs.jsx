@@ -30,7 +30,7 @@ const Blogs = () => {
                         animate="visible"
                         transition={{ duration: 1, delay: 0.25 }}
                         className="max-w-6xl mx-auto mt-12 mb-12">
-                        <div className="flex items-center justify-center gap-5">
+                        <div className="flex flex-col md:flex-row p-5 md:p-4 items-center justify-center gap-5">
                             <div className="flex-1">
                                 <img className="rounded-lg" src="https://img.freepik.com/premium-photo/businessman-protecting-data-personal-information-cyber-security-data-concept-padlock-internet-te_117255-1976.jpg" alt="" />
 
@@ -48,7 +48,7 @@ const Blogs = () => {
                             </div>
 
                         </div>
-                        <div className="max-w-5xl mx-auto mt-8">
+                        <div className="max-w-5xl mx-auto mt-8 p-5">
                             <p><span className="font-bold">Access Tokens:</span> Access tokens are sensitive and must be protected. It is recommended to store them securely and avoid exposing them in client-side code (e.g., JavaScript). Common methods for storing access tokens include:</p>
                             <ul className="list-disc ml-8">
                                 <li>In-memory storage: Store the token in a JavaScript variable during the session. This is suitable for web apps.</li>
@@ -57,7 +57,7 @@ const Blogs = () => {
                             </ul>
                         </div>
                         <div>
-                            <div className="flex items-center justify-center gap-5 mt-12">
+                            <div className="flex flex-col md:flex-row p-5 md:p-4 items-center justify-center gap-5 mt-12">
                                 <div className="flex-1  p-8 border-2 rounded-2xl text-lg">
                                     <h1 className="text-3xl font-bold text-lime-500 mb-4">What is a refresh token?</h1>
                                     <p> <span className="font-bold text-green-500">A refresh token</span> is a long-lived credential used to obtain new access tokens without requiring the user to re-enter their credentials. It enhances security by reducing the frequency with which users need to authenticate.</p>
@@ -70,7 +70,7 @@ const Blogs = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="max-w-5xl mx-auto mt-8">
+                        <div className="max-w-5xl mx-auto mt-8 p-5">
                             <p><span>Refresh Tokens:</span> Refresh tokens are even more sensitive and should be stored securely. It&apos;s often recommended to store them on the server-side. If you must store them on the client-side:</p>
                             <ul className="list-disc">
                                 <li>Use HTTP cookies with HttpOnly and Secure attributes.</li>

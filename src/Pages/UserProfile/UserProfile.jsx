@@ -32,7 +32,7 @@ const UserProfile = () => {
             </Helmet>
             <Navbar></Navbar>
             <p className="text-center text-xl font-bold mt-8">Update Your Profile</p>
-            <div className="flex justify-center flex-col  items-center gap-12 max-w-3xl mx-auto my-12 ">
+            <div className="flex justify-center flex-col md:flex-row lg:flex-row  items-center gap-12 max-w-3xl mx-auto my-12 ">
                 
                 <div className="flex-1">
                     <h1 className="font-bold text-xl uppercase mb-5">{user?.displayName}</h1>
