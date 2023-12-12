@@ -34,7 +34,7 @@ const VideoModal = ({showModal, setShowModal}) => {
     );
 };
 VideoModal.propTypes = {
-    showModal: PropTypes.bol,
+    showModal: PropTypes.func,
     setShowModal: PropTypes.func,
     
 }

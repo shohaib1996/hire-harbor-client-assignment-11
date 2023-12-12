@@ -6,7 +6,7 @@ const AppliedJobCard = ({ job }) => {
 
     const {  Posted_by, Job_Title, Job_Posting_Date, Application_Deadline, Salary_Range, Job_Type, Job_Image, email, applicant_name, resume_link } = job
     return (
-        <div className="card card-side bg-base-100 shadow-xl">
+        <div className="card card-side bg-base-100 shadow-xl flex-col lg:flex-row p-5 lg:p-0">
             <figure><img className='w-[350px] h-[300px] border-r-2 rounded-xl' src={Job_Image} alt="Movie" /></figure>
             <div className="card-body">
                 <h2 className="card-title">{Job_Title}</h2>
