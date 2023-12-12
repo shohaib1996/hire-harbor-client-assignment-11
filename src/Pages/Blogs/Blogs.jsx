@@ -77,11 +77,11 @@ const Blogs = () => {
                                 <li>Store them in a secure, encrypted storage mechanism provided by the platform (e.g., Keychain for iOS or Keystore for Android).</li>
                             </ul>
                         </div>
-                        <div className="max-w-5xl mx-auto">
+                        <div className="max-w-5xl mx-auto p-5">
                             <h1 className="text-5xl font-bold text-center my-14 text-lime-500">----Express Js---</h1>
                             <p><span className="font-bold text-green-500 text-lg" >Express.js</span>, often referred to simply as Express, is a popular and minimalistic web application framework for Node.js. It provides a robust set of features for building web and mobile applications, as well as APIs. Express is known for its simplicity, flexibility, and ease of use, making it a top choice for many developers when creating server-side applications.</p>
                         </div>
-                        <div className="flex items-center justify-center gap-5 my-8">
+                        <div className="flex flex-col md:flex-row p-5 md:p-4 items-center justify-center gap-5 my-8">
                             <div className="flex-1">
                                 <img className="rounded-xl" src="https://i.ibb.co/tDJv4jY/routing.png" alt="" />
                             </div>
@@ -93,7 +93,7 @@ const Blogs = () => {
 
                             </div>
                         </div>
-                        <div className="flex items-center justify-center gap-5 my-8">
+                        <div className="flex flex-col md:flex-row p-5 md:p-4 items-center justify-center gap-5 my-8">
                             <div className="flex-1">
                                 <p className="text-lg"><span className="font-bold">Middleware:</span>
                                     Middleware functions are a fundamental concept in Express. They are functions that have access to the request and response objects and can perform tasks like logging, authentication, validation, and more. Middleware functions can be added to the request handling pipeline using app.use() or associated with specific routes. This allows you to modularize and organize your application&apos;s functionality effectively.</p>
@@ -108,11 +108,11 @@ const Blogs = () => {
                             <p>In summary, Express.js is a versatile and powerful framework for building web applications and APIs with Node.js. Its simplicity and flexibility, along with its rich ecosystem and active community, make it a top choice for many developers seeking to create server-side applications. Whether you&apos;re building a small web application or a complex API, Express can streamline the development process and help you create efficient and maintainable code.</p>
                         </div>
                         <div>
-                            <h1 className="text-5xl font-bold text-center my-14 text-lime-500">----Nest Js---</h1>
+                            <h1 className="text-5xl p-5 font-bold text-center my-14 text-lime-500">----Nest Js---</h1>
                             <p> <span className="font-bold text-green-500 text-lg">NestJS</span> is a popular and powerful Node.js framework for building scalable and maintainable server-side applications. It is often described as a progressive, full-stack framework because it combines elements of both the front-end and back-end development, and it&apos;s designed to make it easier to build enterprise-grade applications. Here&apos;s an elaborate explanation of NestJS:</p>
                         </div>
-                        <div className="flex items-center justify-center gap-5 my-12">
-                            <div className="flex-1">
+                        <div className="flex flex-col md:flex-row p-5 md:p-4 items-center justify-center gap-5 my-12">
+                            <div className="flex-1 p-3">
                                 <ul className="list-disc">
                                     <li className="text-lg"><span className="font-bold">Modularity:</span>
                                         NestJS encourages a modular and organized code structure. It is built around the concept of modules, which are containers for related code. Each module can contain controllers, services, and other components. This modular structure makes it easy to manage and scale complex applications.</li>
@@ -138,11 +138,11 @@ const Blogs = () => {
                                 <img className="rounded-xl" src="https://miro.medium.com/v2/resize:fit:1040/0*zRv5TkRmhAyLnG-t.png" alt="" />
                             </div>
                         </div>
-                        <div>
+                        <div className="p-5">
                             <p className="text-lg">In summary, NestJS is a full-featured Node.js framework that combines the benefits of TypeScript, modularity, and a well-defined structure to make it easier to build complex, scalable, and maintainable server-side applications. Whether you are building RESTful APIs, real-time applications, microservices, or anything in between, NestJS provides a solid foundation for your project. It is a powerful choice for developers who prefer a structured and maintainable approach to application development.</p>
                         </div>
-                        <div>
-                            <h1 className="text-center text-4xl mt-12 font-bold space-y-5">My Code Explanation</h1>
+                        <div className="p-5">
+                            <h1 className="text-center text-4xl mt-12 font-bold space-y-5 ">My Code Explanation</h1>
                             <p>
                                 <span className="text-lg font-bold">Data Fetching with useEffect:</span>
                                 I use the useEffect hook to fetch data from My server using the fetch API. There are two useEffect blocks. The first one fetches categories from https://hire-harbor-server.vercel.app/category and updates the categories state when the data is received. The second one fetches jobs from https://hire-harbor-server.vercel.app/jobs and updates the jobs state.
